@@ -1,9 +1,16 @@
 import { Contact } from './Contact'
+import { UserRole } from './UserRole'
 
 /** The Firebase representation of a user. */
 export interface FirebaseUser {
   /** The unique identifier of the associated Firebase auth user */
   uid: string
+
+  /**
+   * This is the role of the user. It matches the role defined in the custom
+   * firebase auth user claims
+   */
+  role: UserRole
 
   /** Detailed information about the user. */
   contact: Contact
@@ -38,11 +45,13 @@ export function isFirebaseUser(obj: any): obj is FirebaseUser {
  */
 export function createFirebaseUser(
   uid: string,
+  role: UserRole,
   contact: Contact,
   description?: string
 ): FirebaseUser {
   return {
     uid,
+    role,
     contact,
     description
   }
