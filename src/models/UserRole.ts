@@ -13,4 +13,4 @@ export enum UserRole {
 }
 
 /** Export of all user roles */
-export const allUserRoles = [UserRole.Admin, UserRole.User, UserRole.Worker]
+export const AllUserRoles = [UserRole.Admin, UserRole.User, UserRole.Worker]
