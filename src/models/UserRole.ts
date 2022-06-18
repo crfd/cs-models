@@ -9,8 +9,8 @@ export enum UserRole {
   User = 1,
 
   /** Only has access to the worker application */
-  Worker = 2,
+  Worker = 2
 }
 
-/** The permission order of each of the roles */
-export const userRoleOrder = [UserRole.Admin, UserRole.User, UserRole.Worker];
+/** Export of all user roles */
+export const allUserRoles = [UserRole.Admin, UserRole.User, UserRole.Worker]
