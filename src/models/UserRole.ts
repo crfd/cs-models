@@ -14,3 +14,15 @@ export enum UserRole {
 
 /** Export of all user roles */
 export const AllUserRoles = [UserRole.Admin, UserRole.User, UserRole.Worker]
+
+/**
+ * Returns the UserRole for the provided key. If the provided key is not a valid
+ * key inside the UserRole enum the function will return undefined
+ */
+export function userRoleFromKey(key: string): UserRole | undefined {
+  try {
+    return UserRole[key as keyof typeof UserRole]
+  } catch {
+    return undefined
+  }
+}
