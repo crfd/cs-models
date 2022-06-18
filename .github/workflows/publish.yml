@@ -1,5 +1,9 @@
-name: Build and Publish
-on: [push]
+name: Publish
+
+on:
+  push:
+    tags:
+      - '*'
 
 # Required for secrets.GITHUB_TOKEN
 # permissions:
@@ -8,7 +12,7 @@ on: [push]
 
 jobs:
   publish:
-    name: Build, lint, test, publish to npm
+    name: Publish to NPM
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
