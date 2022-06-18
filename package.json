@@ -31,7 +31,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "cs-models",
+  "name": "@crfd/cs-models",
   "author": "André Kuhlmann",
   "module": "dist/cs-models.esm.js",
   "size-limit": [
