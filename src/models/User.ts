@@ -1,8 +1,36 @@
 import { Contact } from './Contact'
-import { UserRole } from './UserRole'
+
+export enum UserRole {
+  /** Has additional privilidges to the User */
+  Admin = 0,
+
+  /**
+   * Official of the fire department without advanced permissions of those of a
+   * administrator
+   */
+  User = 1,
+
+  /** Only has access to the worker application */
+  Worker = 2
+}
+
+/** Export of all user roles */
+export const AllUserRoles = [UserRole.Admin, UserRole.User, UserRole.Worker]
+
+/**
+ * Returns the UserRole for the provided key. If the provided key is not a valid
+ * key inside the UserRole enum the function will return undefined
+ */
+export function userRoleFromKey(key: string): UserRole | undefined {
+  try {
+    return UserRole[key as keyof typeof UserRole]
+  } catch {
+    return undefined
+  }
+}
 
 /** The Firebase representation of a user. */
-export interface FirebaseUser {
+export interface User {
   /** The unique identifier of the associated Firebase auth user */
   uid: string
 
@@ -30,7 +58,7 @@ export interface FirebaseUser {
  *
  * @returns Boolean value.
  */
-export function isFirebaseUser(obj: any): obj is FirebaseUser {
+export function isFirebaseUser(obj: any): obj is User {
   return 'uid' in obj && 'contact' in obj
 }
 
@@ -48,7 +76,7 @@ export function createFirebaseUser(
   role: UserRole,
   contact: Contact,
   description?: string
-): FirebaseUser {
+): User {
   return {
     uid,
     role,

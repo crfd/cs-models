@@ -1,5 +1,6 @@
-import { UserRole } from './UserRole'
+import { UserRole } from '../User'
 
+// TODO: Add description
 export interface NewUserFrame {
   role: UserRole
   email: string
@@ -7,10 +8,12 @@ export interface NewUserFrame {
   userDescription?: string
 }
 
+// TODO: Add description
 export function isNewUserFrame(obj: any): obj is NewUserFrame {
   return 'role' in obj && 'email' in obj && 'name' in obj
 }
 
+// TODO: Add description
 export function createNewUserFrame(
   role: UserRole,
   email: string,
